@@ -3,8 +3,8 @@ package com.freeCodeCamp.demo.model;
 import java.util.UUID;
 
 public class Person {
-    private final UUID id;
-    private final String name;
+    private UUID id;
+    private String name;
 
     public Person() {
     }

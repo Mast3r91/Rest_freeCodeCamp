@@ -5,15 +5,13 @@ import com.freeCodeCamp.demo.service.PersonService;
 
 public class PersonController {
 
-    private final PersonService personService;
+    private final PersonService personService; // having a reference to the actual service.
 
-    public PersonController(personService personService){
+    public PersonController(PersonService personService){
         this.personService = personService;
     }
 
     public void addPerson(Person person){
         personService.addPerson(person);
     }
-
-
 }
