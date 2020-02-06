@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Repository
+@Repository // we initiated this class as bean (Repository)
 public class FakePersonDataAccessService implements PersonDao {
 
     private static List<Person> DB = new ArrayList<>();
