@@ -3,8 +3,10 @@ package com.freeCodeCamp.demo.api;
 import com.freeCodeCamp.demo.model.Person;
 import com.freeCodeCamp.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +22,7 @@ public class PersonController {
     }
 
     @PostMapping(value = "v1/person")
-    public void addPerson(@RequestBody Person person){
+    public void addPerson(@Valid @RequestBody Person person){
         personService.addPerson(person);
     }
 
@@ -30,7 +32,7 @@ public class PersonController {
     }
 
     @GetMapping(value = "v1/person/{id}")
-    public Person getPersonbyId (@PathVariable("id") UUID id){
+    public Person getPersonbyId (@Valid @NonNull @PathVariable("id") UUID id){ // should id be valid @ nonnull (@Valid @NonNull)
         return personService.getPersonById(id).orElse(null);
     }
 
@@ -40,7 +42,7 @@ public class PersonController {
     }
 
     @PutMapping(value = "v1/person/{id}")
-    public void updatePerson(@PathVariable("id") UUID id, @RequestBody Person personToUpdate){
+    public void updatePerson(@Valid @NonNull@PathVariable("id") UUID id, @RequestBody Person personToUpdate){
         personService.updatePerson(id, personToUpdate);
     }
 
