@@ -45,6 +45,4 @@ public class PersonController {
     public void updatePerson(@Valid @NonNull@PathVariable("id") UUID id, @RequestBody Person personToUpdate){
         personService.updatePerson(id, personToUpdate);
     }
-
-
 }
