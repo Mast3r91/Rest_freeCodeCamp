@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class Person {
     private UUID id;
-    @NonNull
+    @NotBlank
     // name can't be Blank (This is on dao level that will not accept Blankm but if you want user not post Blank .. nned to validate it in the method itself. e.g) @Valid)
     private String name;
 

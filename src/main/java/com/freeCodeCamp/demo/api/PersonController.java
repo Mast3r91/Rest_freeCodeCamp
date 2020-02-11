@@ -32,7 +32,7 @@ public class PersonController {
     }
 
     @GetMapping(value = "v1/person/{id}")
-    public Person getPersonbyId (@Valid @NonNull @PathVariable("id") UUID id){ // should id be valid @ nonnull (@Valid @NonNull)
+    public Person getPersonbyId (@PathVariable("id") UUID id){ // should id be valid @ nonnull (@Valid @NonNull)
         return personService.getPersonById(id).orElse(null);
     }
 
@@ -42,7 +42,7 @@ public class PersonController {
     }
 
     @PutMapping(value = "v1/person/{id}")
-    public void updatePerson(@Valid @NonNull@PathVariable("id") UUID id, @RequestBody Person personToUpdate){
+    public void updatePerson(@Valid @NonNull @PathVariable("id") UUID id, @RequestBody Person personToUpdate){
         personService.updatePerson(id, personToUpdate);
     }
 }
